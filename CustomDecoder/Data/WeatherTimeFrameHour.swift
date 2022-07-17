@@ -5,19 +5,30 @@
 //  Created by Artem Stetsenko on 17.07.2022.
 //
 struct WeatherTimeFrameHour: Codable {
-    let dt: Int
+    let data: Int
     let temp: Double
-    let feels_like: Double //
+    let feelsLike: Double
     let pressure: Int
     let humidity: Int
-    let dew_point: Double //
+    let dewPoint: Double
     let uvi: Double
     let clouds: Int
     let visibility: Int
-    let wind_speed: Double //
-    let wind_deg: Int //
-    let wind_gust: Double //
+    let windSpeed: Double
+    let windDeg: Int
+    let windGust: Double
     let weather: [HourlyWeatherParams]
+    
+    enum CodingKeys: String, CodingKey {
+        case data = "dt"
+        case temp, pressure, humidity, uvi
+        case clouds, visibility, weather
+        case feelsLike = "feels_like"
+        case dewPoint = "dew_point"
+        case windSpeed = "wind_speed"
+        case windDeg = "wind_deg"
+        case windGust = "wind_gust"
+    }
 }
 
 struct HourlyWeatherParams: Codable {

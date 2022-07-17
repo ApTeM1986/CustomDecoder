@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B8864A64-4C47-41FF-87F4-107DB93959EE"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4317F9C6-5DC3-482D-8DC2-78BF6981EF8F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CustomDecoder/Data/MainData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4317F9C6-5DC3-482D-8DC2-78BF6981EF8F - 14630d4ee1995e10"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CustomDecoder.JsonParcing.init(from: Swift.Decoder) throws -&gt; CustomDecoder.JsonParcing"
+                  moduleName = "CustomDecoder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemstetsenko/Downloads/lesson4/new_application/CustomDecoder/CustomDecoder/Data/MainData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "4317F9C6-5DC3-482D-8DC2-78BF6981EF8F - 14630d4ee1995e71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CustomDecoder.JsonParcing.init(from: Swift.Decoder) throws -&gt; CustomDecoder.JsonParcing"
+                  moduleName = "CustomDecoder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemstetsenko/Downloads/lesson4/new_application/CustomDecoder/CustomDecoder/Data/MainData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "1696">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E166BCD4-B0CC-4957-B85C-76DCC286B0B1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CustomDecoder/Data/CurrentWeatherData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
