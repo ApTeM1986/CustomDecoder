@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        let textJson = """
 {
- "lat": 33.44,
+"lat": 33.44,
  "lon":-94.04,
  "timezone": "America/Chicago",
  "timezone_offset":-21600,
@@ -134,6 +134,16 @@ class ViewController: UIViewController {
 
 
 """
+        
+        guard let data = textJson.data(using: .utf8) else { return }
+        do {
+            let decoder = JSONDecoder()
+            let model = try decoder.decode(JsonParcing.self, from: data)
+            print(model)
+        } catch {
+            print(error)
+        }
+        
         
     }
 
