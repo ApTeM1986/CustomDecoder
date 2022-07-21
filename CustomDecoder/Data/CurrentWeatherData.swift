@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CurrentWeatherData: Codable{
+struct CurrentWeatherData: Codable, ConvertTemp {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -22,17 +22,17 @@ struct CurrentWeatherData: Codable{
         
         
         let tempTemp = try container.decode(Double.self, forKey: .temp)
-        temp = Int( tempTemp - 273 )
+        temp = CurrentWeatherData.self.kelvinToCelsiy(temp: tempTemp)
         
         
         let feelsLikeTemp = try container.decode(Double.self, forKey: .feelsLike)
-        feelsLike = Int ( feelsLikeTemp - 273 )
+        feelsLike = CurrentWeatherData.self.kelvinToCelsiy(temp: feelsLikeTemp)
         
         pressure = try container.decode(Int.self, forKey: .pressure)
         humidity = try container.decode(Int.self, forKey: .humidity)
         
         let dewPointTemp = try container.decode(Double.self, forKey: .dewPoint)
-        dewPoint = Int ( dewPointTemp - 273 )
+        dewPoint = CurrentWeatherData.self.kelvinToCelsiy(temp: dewPointTemp)
         
         uvi = try container.decode(Double.self, forKey: .uvi)
         clouds = try container.decode(Int.self, forKey: .clouds)
@@ -82,4 +82,4 @@ struct Rain: Codable{
     }
 }
 
-// Как вынести метод в экстеншн?
+

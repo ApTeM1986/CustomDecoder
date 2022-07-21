@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "11"
             endingLineNumber = "11"
-            landmarkName = "init(from:)"
-            landmarkType = "7">
+            landmarkName = "JsonParcing"
+            landmarkType = "14">
             <Locations>
                <Location
                   uuid = "4317F9C6-5DC3-482D-8DC2-78BF6981EF8F - 14630d4ee1995e10"

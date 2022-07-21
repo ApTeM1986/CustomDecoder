@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct WeatherTimeFrameDaily: Codable {
+struct WeatherTimeFrameDaily: Codable, ConvertTemp {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -26,13 +26,15 @@ struct WeatherTimeFrameDaily: Codable {
         moonSet = Date(timeIntervalSince1970: TimeInterval(moonSetTime))
         
         moonPhase = try container.decode(Double.self, forKey: .moonPhase)
+        
         temp = try container.decode(DailyTempDetails.self, forKey: .temp)
+        
         feelsLike = try container.decode(DailyFeelsLikeParams.self, forKey: .feelsLike)
         pressure = try container.decode(Int.self, forKey: .pressure)
         humidity = try container.decode(Int.self, forKey: .humidity)
         
         let dewPointTemp = try container.decode(Double.self, forKey: .dewPoint)
-        dewPoint = Int( dewPointTemp - 273)
+        dewPoint = WeatherTimeFrameDaily.self.kelvinToCelsiy(temp: dewPointTemp)
         
         windSpeed = try container.decode(Double.self, forKey: .windSpeed)
         windDegree = try container.decode(Int.self, forKey: .windDegree)
@@ -82,27 +84,27 @@ struct WeatherTimeFrameDaily: Codable {
     }
 }
 
-struct DailyTempDetails: Codable {
+struct DailyTempDetails: Codable, ConvertTemp {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let dayTemp = try container.decode(Double.self, forKey: .day)
-        day = Int( dayTemp - 273 )
+        day = DailyTempDetails.self.kelvinToCelsiy(temp: dayTemp)
         
         let minTemp = try container.decode(Double.self, forKey: .min)
-        min = Int( minTemp - 273 )
+        min = DailyTempDetails.self.kelvinToCelsiy(temp: minTemp)
         
         let maxTemp = try container.decode(Double.self, forKey: .max)
-        max = Int( maxTemp - 273 )
+        max = DailyTempDetails.self.kelvinToCelsiy(temp: maxTemp)
         
         let nightTemp = try container.decode(Double.self, forKey: .night)
-        night = Int( nightTemp - 273 )
+        night = DailyTempDetails.self.kelvinToCelsiy(temp: nightTemp)
         
         let eveningTemp = try container.decode(Double.self, forKey: .evening)
-        evening = Int( eveningTemp - 273)
+        evening = DailyTempDetails.self.kelvinToCelsiy(temp: eveningTemp)
         
         let morningTemp = try container.decode(Double.self, forKey: .morning)
-        morning = Int( morningTemp - 273 )
+        morning = DailyTempDetails.self.kelvinToCelsiy(temp: morningTemp)
     }
     let day: Int
     let min: Int
@@ -126,21 +128,21 @@ struct DailyTempDetailsWeatherDetails: Codable {
     let icon: String
 }
 
-struct DailyFeelsLikeParams: Codable {
+struct DailyFeelsLikeParams: Codable, ConvertTemp {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let dayT = try container.decode(Double.self, forKey: .day)
-        day = Int( dayT - 273 )
+        day = DailyFeelsLikeParams.self.kelvinToCelsiy(temp: dayT)
         
         let nightT = try container.decode(Double.self, forKey: .night)
-        night = Int( nightT - 273 )
+        night = DailyFeelsLikeParams.self.kelvinToCelsiy(temp: nightT)
         
         let eveningT = try container.decode(Double.self, forKey: .evening)
-        evening = Int( eveningT - 273 )
+        evening = DailyFeelsLikeParams.self.kelvinToCelsiy(temp: eveningT)
         
         let morningT = try container.decode(Double.self, forKey: .morning)
-        morning = Int( morningT - 273 )
+        morning = DailyFeelsLikeParams.self.kelvinToCelsiy(temp: morningT)
     }
    
     let day: Int
@@ -155,4 +157,5 @@ struct DailyFeelsLikeParams: Codable {
         case day, night
     }
 }
+
 
